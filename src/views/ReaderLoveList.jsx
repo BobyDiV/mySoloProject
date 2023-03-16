@@ -3,8 +3,6 @@ const Layout = require('./Layout');
 
 function ReaderLoveList(props) {
   const { books, reader } = props;
-
-  console.log(books);
   return (
     <Layout {...props}>
       <h1>Ваши любимые книги...</h1>
@@ -60,6 +58,7 @@ function ReaderLoveList(props) {
               {reader?.id ? (
                 <>
                   <button
+                    id={book.id}
                     name="edit"
                     type="button"
                     className="edit font-3-4 pointer"
@@ -69,6 +68,7 @@ function ReaderLoveList(props) {
                   </button>
 
                   <button
+                    id={book.id}
                     name="delete"
                     type="button"
                     className="delete font-3-4 pointer"
@@ -82,7 +82,7 @@ function ReaderLoveList(props) {
           ))}
         </ul>
       </main>
-      {/* <script src="/js/addLoveBook.js" /> */}
+      <script src="/js/listBook.js" />
     </Layout>
   );
 }

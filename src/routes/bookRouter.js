@@ -33,4 +33,18 @@ router.post('/isBook', async (req, res, next) => {
   }
 });
 
+router.delete('/:id', async (req, res, next) => {
+  console.log('========= bookRouter.js  / delete ========');
+  try {
+    const result = await Book.destroy({ where: { id: +req.params.id } });
+    res.json(result);
+  } catch (error) {
+    res.render(Error, {
+      message:
+        'Что-то пошло не так!!! Не удалось удалить книгу из базы данных.',
+      error: {},
+    });
+  }
+});
+
 module.exports = router;
