@@ -23,7 +23,8 @@ login.addEventListener('submit', async (e) => {
     console.log('------Результат запроса по входу в систему ---------', res);
 
     if (res.type === 'Пользователь не найден!') {
-      window.location.href = '/newreader';
+      console.log('------Пользователь не найден!');
+      window.location.href = '/readers/newreader';
     } else {
       window.location.href = '/';
     }

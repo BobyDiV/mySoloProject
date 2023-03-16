@@ -2,7 +2,7 @@ const React = require('react');
 
 function Layout(props) {
   const { children, reader } = props;
-  // console.log(props);
+
   return (
     <html lang="en">
       <head>
@@ -26,12 +26,12 @@ function Layout(props) {
             <nav className="clearfix mar-b-1">
               <ul className="no-bullets no-margin no-padding right">
                 <li className="pipe-separate t-light-braun left">
-                  <a className="menu" href="/">
-                    Книги
-                  </a>
-
                   {reader ? (
                     <>
+                      <a className="menu" href="/books/readerList">
+                        Книги
+                      </a>
+
                       <a className="menu" href="/readers/logout">
                         Выйти
                       </a>

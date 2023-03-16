@@ -3,7 +3,6 @@ const Layout = require('./Layout');
 
 function Profile(props) {
   const { readerData } = props;
-  // console.log('====== Profile Reader =========', reader);
   return (
     <Layout reader={readerData}>
       <h1>Информация о читателе...</h1>
@@ -34,7 +33,6 @@ function Profile(props) {
           </li>
         </ul>
       ) : null}
-      {/* <script src="/js/editreader.js" /> */}
     </Layout>
   );
 }

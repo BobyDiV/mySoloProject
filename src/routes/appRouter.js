@@ -3,8 +3,6 @@ const Layout = require('../views/Layout');
 const GoogleApiInfo = require('../views/GogleApiInfo');
 const GoogleQuery = require('../views/GoogleQuery');
 
-// Define variables for API endpoint and search query
-
 router.get('/', async (req, res, next) => {
   console.log('========= appRouter.js ========');
 

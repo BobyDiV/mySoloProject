@@ -44,7 +44,7 @@ function NewReader(props) {
         <input
           id="password"
           name="password"
-          type="text"
+          type="password"
           tabIndex="4"
           className="block w-100 no-outline no-border pad-1 mar-b-2"
         />

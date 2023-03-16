@@ -10,7 +10,7 @@ NewReader.addEventListener('submit', async (e) => {
 
   if (data.login && data.emailAddress && data.password) {
     data = JSON.stringify(data);
-    const result = await fetch('/readers/newreaders', {
+    const result = await fetch('/readers/newreader', {
       method: 'POST',
       body: data,
       headers: {

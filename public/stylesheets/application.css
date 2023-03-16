@@ -31,6 +31,13 @@ a:hover {
   color: #773910;
   text-decoration: underline;
 }
+a.pointer {
+  cursor: pointer;
+}
+
+.bookAdded {
+  visibility: hidden;
+}
 
 p {
   color: #ffffff;
@@ -98,8 +105,52 @@ textarea {
   background-color: #773910;
 }
 
-.c-dk-green {
+.addBook {
+  background-color: #885334;
+  color: whitesmoke;
+  font-weight: bold;
+}
+.addBook:hover {
+  background-color: #f5b774;
   color: #885330;
+  font-weight: bold;
+}
+
+.edit {
+  background-color: #885334;
+  color: whitesmoke;
+  font-weight: bold;
+}
+.edit:hover {
+  background-color: #f5b774;
+  color: #885330;
+  font-weight: bold;
+}
+
+.delete {
+  background-color: #885334;
+  color: black;
+  font-weight: bold;
+}
+.delete:hover {
+  background-color: #661341;
+  color: yellow;
+  font-weight: bold;
+}
+
+.c-yellow {
+  color: #c2bf25;
+}
+
+.c-yellow:hover {
+  color: #9de947;
+}
+
+.c-orange {
+  color: #661341;
+}
+.c-orange:hover {
+  color: #050a50;
 }
 
 .c-lt-gray {

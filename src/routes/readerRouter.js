@@ -8,8 +8,6 @@ const EditReader = require('../views/EditReader');
 const NewReader = require('../views/NewReader');
 const bcrypt = require('bcrypt');
 
-// const Home = require('../view/Home');
-
 router.get('/', async (req, res, next) => {
   try {
     console.log('======== /routers/ ========');
@@ -36,7 +34,7 @@ router.get('/logout', (req, res) => {
   });
 });
 
-router.get('/newreaders', async (req, res, next) => {
+router.get('/newreader', async (req, res, next) => {
   try {
     console.log('======== /newreader ========');
     res.render(NewReader, {});
@@ -64,7 +62,7 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
-router.post('/newreaders', async (req, res, next) => {
+router.post('/newreader', async (req, res, next) => {
   try {
     console.log('======== /POST/newreader ========');
     const { login, fullName, emailAddress, password } = req.body;
@@ -129,13 +127,8 @@ router.post('/profile/editor', async (req, res, next) => {
       },
       {
         where: { id: req.session.reader.id },
-        // returning: true,
-        // plain: true,
       }
     );
-    // const reader = readerData.get({ plain: true });
-    console.log('======= reader ========= >>>', readerData[1]);
-    // res.json(readerData[1]);
     res.sendStatus(200);
   } catch (error) {
     error.type = 'Читатель не найден!';
