@@ -3,23 +3,14 @@ console.log('--------- edit & delete book list --------');
 const ul = document.getElementById('ul');
 
 ul.addEventListener('click', async (e) => {
-  e.preventDefault();
   if (e.target.name === 'edit') {
+    e.preventDefault();
     // редактирование записи в списке
     console.log('==== edit book info/ id =====', e.target.id);
 
-    // const bookInfo = {
-    //   id: e.target.id,
-    //   isbn: e.target.parentNode.children[0].id,
-    //   title: e.target.parentNode.children[1].id,
-    //   author: e.target.parentNode.children[2].id,
-    //   linkInfo: e.target.parentNode.children[3].id,
-    // };
-    // console.log(' book info =====>', bookInfo);
-
-    // const response = await fetch(`/books/info/${e.target.id}`);
     window.location.href = `/books/info/${e.target.id}`;
   } else if (e.target.name === 'delete') {
+    e.preventDefault();
     // удаление записи из списка
     console.log('==== delete / id =====', e.target.id);
     try {

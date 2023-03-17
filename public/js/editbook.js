@@ -15,15 +15,13 @@ editBook.addEventListener('submit', async (e) => {
   if (data.isbn && data.title && data.author && data.linkInfo) {
     data = JSON.stringify(data);
     try {
-      const result = await fetch(`/books/editor/${bookId}`, {
+      await fetch(`/books/editor/${bookId}`, {
         method: 'POST',
         body: data,
         headers: {
           'Content-Type': 'application/json',
         },
       });
-      // const res = await result.json();
-      // console.log(res);
 
       window.location.href = '/books/readerList';
     } catch (error) {

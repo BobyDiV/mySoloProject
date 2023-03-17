@@ -20,8 +20,10 @@ function Profile(props) {
             </a>
           </li>
 
-          <li className="pipe-separate left">
-            <button
+          {/* <li className="pipe-separate left">
+            <a
+              href={`/readers/eraser/profile/${readerData.id}`}
+              method="POST"
               id="deleteUserButton"
               data-reader={readerData.id}
               value="delete"
@@ -29,8 +31,8 @@ function Profile(props) {
               className="no-border no-outline no-bg c-white hover-underline"
             >
               delete
-            </button>
-          </li>
+            </a>
+          </li> */}
         </ul>
       ) : null}
     </Layout>

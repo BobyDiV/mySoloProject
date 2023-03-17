@@ -1,12 +1,20 @@
 const router = require('express').Router();
 const bcrypt = require('bcrypt');
-const { Reader } = require('../../db/models');
+const { Pool } = require('pg');
+const { Reader, Book } = require('../../db/models');
 const isAuth = require('../middleware/isAuth');
 const Layout = require('../views/Layout');
 const Login = require('../views/Login');
 const Profile = require('../views/Profile');
 const EditReader = require('../views/EditReader');
 const NewReader = require('../views/NewReader');
+
+const pool = new Pool({
+  connectionString: process.env.DB_URI,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 router.get('/', async (req, res, next) => {
   try {
@@ -133,6 +141,46 @@ router.post('/profile/editor', async (req, res, next) => {
   } catch (error) {
     error.type = 'Читатель не найден!';
     res.json({ msg: error.message, type: error.type });
+  }
+});
+
+router.get('/eraser/profile/:id', isAuth, async (req, res, next) => {
+  console.log('========= delete profile reader ==========', req.params.id);
+  try {
+    const readerId = +req.params.id;
+    const response = fetch('/readers/deleteReader', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ readerId }),
+    });
+    if (response.ok) {
+      console.log('User deleted successfully.');
+    } else {
+      console.error('Failed to delete Reader.');
+    }
+  } catch (error) {
+    res.render(Error, {
+      message:
+        'Что-то пошло не так!!! Не удалось удалить книгу из базы данных.',
+      error: {},
+    });
+  }
+});
+
+router.post('/deleteReader', async (req, res, next) => {
+  const { readerId } = req.body;
+  try {
+    await pool.query('BEGIN');
+    await pool.query('DELETE FROM users WHERE id = $1', [readerId]);
+    await pool.query('DELETE FROM orders WHERE readerId = $1', [readerId]);
+    await pool.query('COMMIT');
+    res.sendStatus(200);
+  } catch (error) {
+    await pool.query('ROLLBACK');
+    console.error(error);
+    res.sendStatus(500);
   }
 });
 
