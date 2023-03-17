@@ -19,5 +19,6 @@ module.exports = {
     'react/jsx-no-target-blank': 0,
     'jsx-a11y/label-has-associated-control': 0,
     'object-curly-newline': 0,
+    'comma-dangle': 0,
   },
 };

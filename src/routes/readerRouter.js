@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { Reader } = require('../../db/models');
 const isAuth = require('../middleware/isAuth');
 const Layout = require('../views/Layout');
@@ -6,7 +7,6 @@ const Login = require('../views/Login');
 const Profile = require('../views/Profile');
 const EditReader = require('../views/EditReader');
 const NewReader = require('../views/NewReader');
-const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res, next) => {
   try {

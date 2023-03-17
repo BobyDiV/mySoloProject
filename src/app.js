@@ -62,6 +62,7 @@ app.use('/books', bookRouter);
 app.use((req, res, next) => {
   const error = createError(
     404,
+    // eslint-disable-next-line comma-dangle
     'Запрашиваемой страницы не существует на сервере.'
   );
   next(error);
