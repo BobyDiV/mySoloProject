@@ -40,12 +40,12 @@ function GoogleApiInfo(props) {
                     ) : (
                       <img
                         src={`/images/Picture_${
-                          6 - Math.floor(Math.random() * 5)
+                          8 - Math.floor(Math.random() * 7)
                         }.jpg`}
                         className="img-fluid rounded-start"
                         alt="imagelink"
                         data-pictureurl={`/images/Picture_${
-                          6 - Math.floor(Math.random() * 5)
+                          8 - Math.floor(Math.random() * 7)
                         }.jpg`}
                         style={{
                           margin: '15px 5px',

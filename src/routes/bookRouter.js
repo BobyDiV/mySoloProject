@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const ReaderLoveList = require('../views/ReaderLoveList');
 const EditBookInfo = require('../views/EditBookInfo');
+const isAuth = require('../middleware/isAuth');
 const Layout = require('../views/Layout');
 
 const { Book } = require('../../db/models');
 
-router.get('/readerList', async (req, res, next) => {
+router.get('/readerList', isAuth, async (req, res, next) => {
   console.log('========= bookRouter.js reader List========');
 
   const books = await Book.findAll({
@@ -16,7 +17,7 @@ router.get('/readerList', async (req, res, next) => {
   res.render(ReaderLoveList, { books });
 });
 
-router.get('/info/:id', async (req, res, next) => {
+router.get('/info/:id', isAuth, async (req, res, next) => {
   try {
     console.log('======== /book/:id ========');
     const bookId = req.params.id;
@@ -31,7 +32,7 @@ router.get('/info/:id', async (req, res, next) => {
   }
 });
 
-router.post('/editor/:id', async (req, res, next) => {
+router.post('/editor/:id', isAuth, async (req, res, next) => {
   console.log('========= bookRouter.js  / post ========', req.params.id);
   console.log('=== Welcome to edit info of the book =====', req.body);
 
@@ -58,7 +59,7 @@ router.post('/editor/:id', async (req, res, next) => {
   }
 });
 
-router.post('/isBook', async (req, res, next) => {
+router.post('/isBook', isAuth, async (req, res, next) => {
   console.log('========= bookRouter.js  / isBook ========');
 
   const { isbn, title, author, readerId, linkInfo, bookCover } = req.body;
@@ -76,7 +77,7 @@ router.post('/isBook', async (req, res, next) => {
   }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', isAuth, async (req, res, next) => {
   console.log('========= bookRouter.js  / delete ========');
   try {
     const result = await Book.destroy({ where: { id: +req.params.id } });

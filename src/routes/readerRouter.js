@@ -30,7 +30,7 @@ router.get('/logout', (req, res) => {
     if (error) console.error(error);
     else {
       res.clearCookie('booksReview');
-      res.render(Layout, {});
+      res.redirect('/');
     }
   });
 });
@@ -116,7 +116,7 @@ router.get('/profile/:id', isAuth, async (req, res, next) => {
   }
 });
 
-router.post('/profile/editor', async (req, res, next) => {
+router.post('/profile/editor', isAuth, async (req, res, next) => {
   try {
     console.log('========= Welcome to /profile/editor/ ==========');
     console.log(req.session.reader);
