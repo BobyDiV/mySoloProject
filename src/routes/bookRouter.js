@@ -61,10 +61,11 @@ router.post('/editor/:id', async (req, res, next) => {
 router.post('/isBook', async (req, res, next) => {
   console.log('========= bookRouter.js  / isBook ========');
 
-  const { isbn, title, author, readerId, linkInfo } = req.body;
+  const { isbn, title, author, readerId, linkInfo, bookCover } = req.body;
+  console.log({ isbn }, { title }, { author }, { bookCover }, { readerId });
   try {
     const response = await Book.findOrCreate({
-      where: { isbn, title, author, readerId, linkInfo },
+      where: { isbn, title, author, readerId, linkInfo, bookCover },
     });
     res.status(200).json(response);
   } catch (error) {

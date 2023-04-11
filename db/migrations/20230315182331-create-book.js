@@ -22,6 +22,9 @@ module.exports = {
       linkInfo: {
         type: Sequelize.STRING,
       },
+      bookCover: {
+        type: Sequelize.STRING,
+      },
       readerId: {
         allowNull: false,
         type: Sequelize.INTEGER,
@@ -29,6 +32,7 @@ module.exports = {
           model: 'Readers',
           key: 'id',
         },
+        onDelete: 'cascade',
       },
       createdAt: {
         allowNull: false,

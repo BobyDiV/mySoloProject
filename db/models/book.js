@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       author: DataTypes.STRING,
       linkInfo: DataTypes.STRING,
+      bookCover: DataTypes.STRING,
       readerId: DataTypes.INTEGER,
     },
     {

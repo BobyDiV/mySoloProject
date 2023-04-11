@@ -27,7 +27,7 @@ const sessionConfig = {
   name: 'booksReview', // * Название куки
   store: new FileStore(), // * подключение стора (БД для куки) для хранения
   secret: process.env.COOKIE_SEKRET, // * ключ для шифрования куки прописан в.env
-  resave: true, // * если true, пересохраняет сессию, даже если она не поменялась
+  resave: false, // * если true, пересохраняет сессию, даже если она не поменялась
   saveUninitialized: false, // * Если false, куки появляются только при установке req.session
   cookie: {
     secure: false, // http/https

@@ -1,5 +1,5 @@
-const React = require('react');
-const Layout = require('./Layout');
+const React = require("react");
+const Layout = require("./Layout");
 
 function Profile(props) {
   const { readerData } = props;
@@ -20,19 +20,11 @@ function Profile(props) {
             </a>
           </li>
 
-          {/* <li className="pipe-separate left">
-            <a
-              href={`/readers/eraser/profile/${readerData.id}`}
-              method="POST"
-              id="deleteUserButton"
-              data-reader={readerData.id}
-              value="delete"
-              type="button"
-              className="no-border no-outline no-bg c-white hover-underline"
-            >
+          <li className="pipe-separate left">
+            <a href={`/readers/killer/${readerData.id}`} className="c-white">
               delete
             </a>
-          </li> */}
+          </li>
         </ul>
       ) : null}
     </Layout>
