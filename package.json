@@ -46,10 +46,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AndrewNagikh/core-express-blog-anonymous.git"
+    "url": "git+https://github.com/BobyDiV/mySoloProject.git"
   },
   "bugs": {
-    "url": "https://github.com/AndrewNagikh/core-express-blog-anonymous/issues"
+    "url": "https://github.com/BobyDiV/mySoloProject"
   },
-  "homepage": "https://github.com/AndrewNagikh/core-express-blog-anonymous#readme"
+  "homepage": "https://github.com/BobyDiV/mySoloProject#readme"
 }
