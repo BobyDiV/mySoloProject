@@ -3,7 +3,11 @@ const Layout = require('./Layout');
 
 function EditBookInfo(props) {
   console.log('=====  !!!!  Edit Book Info  !!!!  ========', props);
-  const { bookInfo, reader } = props;
+  const { bookInfo, windowname, reader } = props;
+  console.log(
+    '🚀🚀 ~ file: EditBookInfo.jsx:7 ~ EditBookInfo ~ windowname~',
+    windowname
+  );
 
   return (
     <Layout reader={reader}>
@@ -61,6 +65,7 @@ function EditBookInfo(props) {
         <input
           id={bookInfo.id}
           name={bookInfo.id}
+          data-windowname={windowname}
           type="submit"
           value="Submit"
           tabIndex="5"

@@ -1,8 +1,9 @@
 const React = require('react');
+const Navbar = require('./Navbar');
+const LogoBig = require('./LogoBig');
 
 function Layout(props) {
-  const { children, reader } = props;
-  console.log('🚀 ~ file: Layout.jsx:5 ~ Layout ~ reader:', reader);
+  const { children, reader, withoutLogo } = props;
 
   return (
     <html lang="en">
@@ -13,7 +14,6 @@ function Layout(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/stylesheets/normalize.css" />
-        <link rel="stylesheet" href="/stylesheets/application.css" />
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -24,6 +24,7 @@ function Layout(props) {
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
           crossOrigin="anonymous"
         />
+        <link rel="stylesheet" href="/stylesheets/application.css" />
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -39,64 +40,22 @@ function Layout(props) {
           className="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white"
         >
           <div className="min-w-290 center wrap-float">
-            {reader ? (
-              <h5 className="helloStr">{`Здравствуйте, уважаемый ${reader.fullName}!`}</h5>
-            ) : (
-              <h5 className="helloStr">Здравствуйте, уважаемый читатель!</h5>
-            )}
-            <nav className="clearfix mar-b-1">
-              <ul className="no-bullets no-margin no-padding right">
-                <li className="pipe-separate t-light-braun left">
-                  {reader ? (
-                    <>
-                      <a className="menu" href="/books/readerList">
-                        Книги
-                      </a>
+            <h5 className="helloStr">
+              {reader
+                ? `Здравствуйте, уважаемый ${reader.fullName}!`
+                : 'Здравствуйте, уважаемый читатель!'}
+            </h5>
 
-                      <a className="menu" href="/readers/logout">
-                        Выйти
-                      </a>
-                      <a className="menu" href="/readers/profile">
-                        Читатель
-                      </a>
-                    </>
-                  ) : (
-                    <>
-                      <a className="menu" href="/readers/login">
-                        Войти
-                      </a>
-
-                      <a className="menu" href="/readers/newreader">
-                        Регистрация
-                      </a>
-                    </>
-                  )}
-                  <a
-                    className="menu"
-                    href="https://books.google.com/?hl=ru"
-                    target="_blank"
-                  >
-                    Google📚
-                  </a>
-                  <a className="menu" href="/google/query">
-                    🔍
-                  </a>
-                </li>
-              </ul>
-            </nav>
-
-            <div className="logo-container">
-              <img
-                className="logo center block animate__animated animate__flip"
-                src="/images/reader-logo.png"
-                alt="logo"
-              />
-              <h1 className="logoText">Любимые книги</h1>
-            </div>
+            <Navbar {...props} />
+            {!withoutLogo ? <LogoBig /> : null}
           </div>
         </header>
-        <div className="bg-dk-braun pad-t-2 pad-s-1 pad-b-8 mar-b-16 c-white">
-          <div className="max-w-700 center">{children}</div>
+        <div className="bg-dk-braun pad-t-3 pad-s-1 pad-b-8 mar-b-16 c-white">
+          <div
+            className={withoutLogo ? 'max-w-1700 center' : 'max-w-700 center'}
+          >
+            {children}
+          </div>
         </div>
       </body>
     </html>

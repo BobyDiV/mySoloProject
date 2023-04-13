@@ -51,8 +51,8 @@ p {
   padding: 0px 3px;
 }
 
-input[type="text"],
-input[type="password"],
+input[type='text'],
+input[type='password'],
 textarea {
   font-weight: bold;
   color: #773910;
@@ -166,7 +166,7 @@ a.c-white:hover {
 }
 
 .clearfix:after {
-  content: " "; /* Older browser do not support empty content */
+  content: ' '; /* Older browser do not support empty content */
   visibility: hidden;
   display: block;
   height: 0;
@@ -235,6 +235,9 @@ a.c-white:hover {
 
 .max-w-700 {
   max-width: 700px;
+}
+.max-w-1700 {
+  max-width: 1700px;
 }
 
 .min-w-290 {
@@ -309,6 +312,9 @@ a.c-white:hover {
 .pad-t-2 {
   padding-top: 1em;
 }
+.pad-t-3 {
+  padding-top: 1.5em;
+}
 
 .pipe-separate {
   padding-left: 1em;
@@ -359,24 +365,56 @@ a.c-white:hover {
 
 .logo-container {
   border: 5px solid #773910;
-  color: #773910;
-  width: 255px;
-  height: 255px;
-  border-radius: 50%;
+  background-image: url('/images/logo-fon.gif');
+  background-repeat: repeat;
   padding: 20px;
   margin: 0 auto;
   text-align: center;
 }
 
+.logo-ring {
+  border-radius: 50%;
+}
+
+.logo-big {
+  width: 255px;
+  height: 255px;
+}
+
 .logo {
   width: 120px;
+  /* анимация взята из Animate.css  */
+  animation: flip 1s;
 }
 
 .logoText {
+  /* color: #773910; */
+  color: whitesmoke;
+  text-shadow: 1px 1px 2px rgb(95, 13, 2), 0 0 1em #773910, 0 0 0.2em #c27e50;
   font-size: 1.2em;
   margin: 0.55em 0;
+  /* анимация взята из Animate.css  */
+  animation: lightSpeedInLeft 1s;
 }
 
 .error {
   color: red;
+}
+
+.oneBookCard-horizontal {
+  maxwidth: 600px;
+  borderleft: 2px solid #6c757d;
+  bordertop: 2px solid #6c757d;
+  borderright: 2px solid #582401;
+  borderbottom: 2px solid #582401;
+  background: #885334;
+  padding: 3px;
+}
+
+.card {
+  background: #885334;
+}
+.reader-color-text {
+  color: rgb(223, 212, 120);
+  text-shadow: 1px 1px 2px rgb(53, 10, 3), 0 0 1em #773910, 0 0 0.2em #c27e50;
 }

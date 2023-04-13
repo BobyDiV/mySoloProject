@@ -3,14 +3,11 @@ const Layout = require('./Layout');
 
 function ReaderLoveList(props) {
   const { books, reader } = props;
-  console.log(
-    '🚀 ~ file: ReaderLoveList.jsx:6 ~ ReaderLoveList ~ books:',
-    books
-  );
-
+  const windowName = "1"; // для выбора ручки '/books/readerList'
   return (
     <Layout {...props}>
-      <h1>Ваши любимые книги...</h1>
+      <h3>Ваши любимые книги...</h3>
+      <br />
       <main name="readerlist">
         <ul id="ul" className="books-list no-bullets no-padding">
           {books.map((book, index) => (
@@ -26,6 +23,10 @@ function ReaderLoveList(props) {
                   maxWidth: '685px',
                   background: '#885334',
                   padding: '3px',
+                  borderLeft: '2px solid #6c757d',
+                  borderTop: '2px solid #6c757d',
+                  borderRight: '2px solid #582401',
+                  borderBottom: '2px solid #582401',
                 }}
               >
                 <div className="row g-0">
@@ -77,6 +78,7 @@ function ReaderLoveList(props) {
                             id={book.id}
                             name="edit"
                             type="button"
+                            data-windowname={windowName}
                             className="edit font-3-4 pointer"
                           >
                             {' '}

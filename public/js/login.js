@@ -26,7 +26,7 @@ login.addEventListener('submit', async (e) => {
       console.log('------Пользователь не найден!');
       window.location.href = '/readers/newreader';
     } else {
-      window.location.href = '/';
+      window.location.href = '/books/readerList';
     }
   } else {
     alert('Пожалуйста заполните все поля!');

@@ -16,6 +16,7 @@ function NewReader(props) {
           type="text"
           tabIndex="1"
           className="block w-100 no-outline no-border pad-1 mar-b-1"
+          required
         />
 
         <label htmlFor="title-input" className="block mar-b-0">
@@ -27,6 +28,7 @@ function NewReader(props) {
           type="text"
           tabIndex="2"
           className="block w-100 no-outline no-border pad-1 mar-b-1"
+          required
         />
         <label htmlFor="title-input" className="block mar-b-0">
           Адрес электронной почты:
@@ -37,6 +39,8 @@ function NewReader(props) {
           type="text"
           tabIndex="3"
           className="block w-100 no-outline no-border pad-1 mar-b-1"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          required
         />
         <label htmlFor="title-input" className="block mar-b-0">
           Пароль:

@@ -8,6 +8,8 @@ editBook.addEventListener('submit', async (e) => {
   let data = new FormData(e.target);
   data = Object.fromEntries(data.entries());
   const bookId = e.target.lastChild.id;
+  const windowName = e.target.lastChild.dataset.windowname;
+
   console.log('id=====>', bookId);
 
   console.log('========= editBook data ==========', data);
@@ -22,8 +24,11 @@ editBook.addEventListener('submit', async (e) => {
           'Content-Type': 'application/json',
         },
       });
-
-      window.location.href = '/books/readerList';
+      if (windowName === '1') {
+        window.location.href = '/books/readerList';
+      } else if (windowName === '2') {
+        window.location.href = '/books/library';
+      }
     } catch (error) {
       console.log(error);
     }

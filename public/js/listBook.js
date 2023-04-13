@@ -1,4 +1,4 @@
-console.log('--------- edit & delete book list --------');
+console.log('---------listBook.js ---- edit & delete book list --------');
 
 const ul = document.getElementById('ul');
 
@@ -6,9 +6,9 @@ ul.addEventListener('click', async (e) => {
   if (e.target.name === 'edit') {
     e.preventDefault();
     // редактирование записи в списке
-    console.log('==== edit book info/ id =====', e.target.id);
-
-    window.location.href = `/books/info/${e.target.id}`;
+    const id = String(e.target.id);
+    const windowname = String(e.target.dataset.windowname);
+    window.location.href = `/books/info/${id}/${windowname}`;
   } else if (e.target.name === 'delete') {
     e.preventDefault();
     // удаление записи из списка
