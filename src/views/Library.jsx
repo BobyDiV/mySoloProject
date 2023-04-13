@@ -15,7 +15,7 @@ function Library(props) {
               key={book.id}
               className="col"
               style={{
-                maxWidth: '280px',
+                maxWidth: '210px',
                 padding: '3px',
                 borderLeft: '2px solid #6c757d',
                 borderTop: '2px solid #6c757d',
@@ -28,9 +28,9 @@ function Library(props) {
                   src={`${book.bookCover}`}
                   className="card-img-top"
                   alt="bookCover"
-                  style={{
-                    maxHeight: '55%',
-                  }}
+                  // style={{
+                  //   maxHeight: '55%',
+                  // }}
                 />
                 <div className="card-body bg-col">
                   <h6 className="card-title">{book.title}</h6>
